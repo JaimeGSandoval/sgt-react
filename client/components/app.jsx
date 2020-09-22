@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './grade-table';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +9,7 @@ class App extends React.Component {
       grades: []
     };
     this.getAllGrades = this.getAllGrades.bind(this);
-    this.calculateGradeAverage = this.calculateGradeAverage.bind(this);
+    this.getAverageGrade = this.getAverageGrade.bind(this);
   }
 
   componentDidMount() {
@@ -24,22 +25,20 @@ class App extends React.Component {
       .catch(error => console.error('Fetch error', error));
   }
 
-  calculateGradeAverage(grades) {
-    var average = null;
-    var averageTotal = null;
-    for (var i = 0; i < this.state.grades.length; i++) {
+  getAverageGrade(grades) {
+    let average = 0;
+    let averageTotal = null;
+    for (let i = 0; i < this.state.grades.length; i++) {
       average += this.state.grades[i].grade;
     }
-
     averageTotal = Math.ceil(average / this.state.grades.length);
     return averageTotal;
-
   }
 
   render() {
     return (
       <div className='container'>
-        <Header title="Student Grade Table" average={this.calculateGradeAverage()} />
+        <Header title="Student Grade Table" average={this.getAverageGrade} />
         <GradeTable grades={this.state.grades} />
       </div>
     );

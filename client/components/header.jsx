@@ -8,7 +8,7 @@ function Header(props) {
       </div>
 
       <div className="col average-box d-flex align-items-center justify-content-end">
-        <h3>Average Grade <span className="badge badge-primary ml-2 mt-5">{props.calculateGradeAverage}</span></h3>
+        <h3>Average Grade <span className="badge badge-primary ml-2 mt-5">{props.average()}</span></h3>
       </div>
     </header>
   );

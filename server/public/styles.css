@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid orange;
+}
+
+.table {
+  border: 2px solid black;
+}
+
+.table td {
+  border-top: 0;
+  border-left: 2px solid black;
+}
+
+.table thead th {
+  border-top: 1px solid black;
+  border-bottom: 0;
+  border-left: 2px solid black;
+}
+
+.table-bordered td {
+  border-color: black;
+  border-top: 0;
+}

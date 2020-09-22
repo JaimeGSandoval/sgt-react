@@ -26,19 +26,19 @@ class App extends React.Component {
   }
 
   getAverageGrade(grades) {
-    let average = 0;
+    let average = null;
     let averageTotal = null;
-    for (let i = 0; i < this.state.grades.length; i++) {
-      average += this.state.grades[i].grade;
+    for (let i = 0; i < grades.length; i++) {
+      average += grades[i].grade;
     }
-    averageTotal = Math.ceil(average / this.state.grades.length);
+    averageTotal = Math.ceil(average / grades.length);
     return averageTotal;
   }
 
   render() {
     return (
       <div className='container'>
-        <Header title="Student Grade Table" average={this.getAverageGrade} />
+        <Header title="Student Grade Table" average={this.getAverageGrade(this.state.grades)} />
         <GradeTable grades={this.state.grades} />
       </div>
     );

@@ -34,8 +34,8 @@ function InputButtons(props) {
   return (
     <>
       <div className="btn-box justify-content-end d-flex">
-        <button className="btn-success" type="submit">Add</button>
-        <button className="btn-success ml-2" type="reset">Cancel</button>
+        <button className="btn-success pb-1" type="submit">Add</button>
+        <button className="btn-success ml-2 pb-1" type="reset">Cancel</button>
       </div>
     </>
   );
@@ -43,12 +43,27 @@ function InputButtons(props) {
 }
 
 class GradeForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const name = formData.get('name');
+    const course = formData.get('course');
+    const grade = formData.get('grade');
+    this.createGrade(name, course, grade);
+    event.target.reset();
+  }
 
   render() {
     return (
 
       <div className="col-4">
-        <form action="#">
+        <form action="POST">
           <div className="form-group">
             <InputFields />
             <InputButtons />

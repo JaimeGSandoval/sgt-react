@@ -11,6 +11,7 @@ class App extends React.Component {
     };
     this.getAllGrades = this.getAllGrades.bind(this);
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.createGrade = this.createGrade.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,21 @@ class App extends React.Component {
     }
     averageTotal = Math.ceil(average / grades.length);
     return averageTotal;
+  }
+
+  createGrade(name, course, grade) {
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, course, grade })
+    };
+
+    fetch('/api/grades', req)
+      .then(res => res.json())
+      .then(data => data)
+      .catch(error => console.error('Post error', error));
   }
 
   render() {

@@ -52,7 +52,12 @@ class App extends React.Component {
 
     fetch('/api/grades', req)
       .then(res => res.json())
-      .then(data => data)
+      .then(data => {
+        this.setState(state => {
+          state.grades.concat(data);
+        });
+        this.getAllGrades();
+      })
       .catch(error => console.error('Post error', error));
   }
 
@@ -62,7 +67,7 @@ class App extends React.Component {
         <Header title="Student Grade Table" average={this.getAverageGrade(this.state.grades)} />
         <div className="row">
           <GradeTable grades={this.state.grades} />
-          <GradeForm />
+          <GradeForm createGrade={this.createGrade} />
         </div>
       </div>
     );

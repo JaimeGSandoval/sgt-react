@@ -19,27 +19,25 @@ function GradeTable(props) {
   }
 
   return (
-    <div className="row" >
-      <div className="col-12">
-        <table className="table table-striped">
-          <thead className="bg-secondary">
-            <tr>
-              <th scope="col-6" className="py-3">Student Name</th>
-              <th scope="col-3" className="py-3">Course</th>
-              <th scope="col-3" className="py-3">Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              props.grades.map(grade => {
-                return <Grade key={grade.id} name={grade.name} course={grade.course} grade={grade.grade} />;
-              })
+    <div className="col-8">
+      <table className="table table-striped">
+        <thead className="bg-secondary">
+          <tr>
+            <th scope="col-6" className="py-3">Student Name</th>
+            <th scope="col-3" className="py-3">Course</th>
+            <th scope="col-3" className="py-3">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            props.grades.map(grade => {
+              return <Grade key={grade.id} name={grade.name} course={grade.course} grade={grade.grade} />;
+            })
 
-            }
-          </tbody>
-        </table>
-        <p className={noGradesText}>No Grades Recorded</p>
-      </div>
+          }
+        </tbody>
+      </table>
+      <p className={noGradesText}>No Grades Recorded</p>
     </div>
   );
 

@@ -11,16 +11,17 @@ function Grade(props) {
 }
 
 function GradeTable(props) {
-  let noGradesText = 'noGradesText d-none';
-  if (!props.grades) {
+  let noGradesText = '';
+  if (props.grades.length === 0) {
     noGradesText = 'noGradesText';
-    return;
+  } else {
+    noGradesText = 'd-none';
   }
 
   return (
     <div className="row" >
       <div className="col-12">
-        <table className="table">
+        <table className="table table-striped">
           <thead className="bg-secondary">
             <tr>
               <th scope="col-6" className="py-3">Student Name</th>

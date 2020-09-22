@@ -17,3 +17,7 @@
   border-color: black;
   border-top: 0;
 }
+
+.noGradesText {
+  font-size: 1.5rem;
+}

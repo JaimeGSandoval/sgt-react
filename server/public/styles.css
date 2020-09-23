@@ -1,23 +1,21 @@
-.table {
-  border: 2px solid black;
-}
-
-.table td {
-  border-top: 0;
-  border-left: 2px solid black;
-}
-
-.table thead th {
-  border-top: 1px solid black;
-  border-bottom: 0;
-  border-left: 2px solid black;
-}
-
-.table-bordered td {
-  border-color: black;
-  border-top: 0;
-}
-
 .noGradesText {
   font-size: 1.5rem;
+}
+
+td {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+button {
+  font-size: 1.4rem;
+}
+
+th {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.input-fields {
+  height: 50px;
 }

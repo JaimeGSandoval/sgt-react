@@ -6,7 +6,7 @@ function Grade(props) {
       <td>{props.name}</td>
       <td>{props.course}</td>
       <td>{props.grade}</td>
-      <td><button className="btn-danger" onClick={() => props.deleteGrade(props.gradeId)}>{props.buttonTitle}</button></td>
+      <td><button className="btn-danger py-2 px-3 rounded" onClick={() => props.deleteGrade(props.gradeId)}>{props.buttonTitle}</button></td>
     </tr>
   );
 }
@@ -22,7 +22,7 @@ function GradeTable(props) {
   return (
     <div className="col-8">
       <table className="table table-striped">
-        <thead className="bg-secondary">
+        <thead className="bg-secondary text-white">
           <tr>
             <th scope="col-6" className="py-3">Student Name</th>
             <th scope="col-3" className="py-3">Course</th>

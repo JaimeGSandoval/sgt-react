@@ -12,6 +12,7 @@ class App extends React.Component {
     this.getAllGrades = this.getAllGrades.bind(this);
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.createGrade = this.createGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,25 @@ class App extends React.Component {
     };
 
     fetch('/api/grades', req)
+      .then(res => res.json())
+      .then(data => {
+        this.setState(state => {
+          state.grades.concat(data);
+        });
+        this.getAllGrades();
+      })
+      .catch(error => console.error('Post error', error));
+  }
+
+  deleteGrade(id) {
+    const req = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch(`/api/grades/${id}`, req)
       .then(res => res.json())
       .then(data => {
         this.setState(state => {

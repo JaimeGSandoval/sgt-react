@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './grade-table';
+import GradeForm from './grade-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends React.Component {
     };
     this.getAllGrades = this.getAllGrades.bind(this);
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.createGrade = this.createGrade.bind(this);
   }
 
   componentDidMount() {
@@ -39,11 +41,34 @@ class App extends React.Component {
     return averageTotal;
   }
 
+  createGrade(name, course, grade) {
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, course, grade })
+    };
+
+    fetch('/api/grades', req)
+      .then(res => res.json())
+      .then(data => {
+        this.setState(state => {
+          state.grades.concat(data);
+        });
+        this.getAllGrades();
+      })
+      .catch(error => console.error('Post error', error));
+  }
+
   render() {
     return (
       <div className='container'>
         <Header title="Student Grade Table" average={this.getAverageGrade(this.state.grades)} />
-        <GradeTable grades={this.state.grades} />
+        <div className="row">
+          <GradeTable grades={this.state.grades} />
+          <GradeForm createGrade={this.createGrade} />
+        </div>
       </div>
     );
   }

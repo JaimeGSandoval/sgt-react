@@ -3,7 +3,7 @@ import React from 'react';
 function Header(props) {
   return (
     <header className="row header">
-      <div className="col-9">
+      <div className="col-8">
         <h1 className="mt-5 mb-4">{props.title}</h1>
       </div>
 

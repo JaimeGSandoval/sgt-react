@@ -17,24 +17,6 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 89
-    },
-    {
-      "name": "Uzumaki Naruto",
-      "course": "Ninja Academy",
-      "grade": 95,
-      "id": 4
-    },
-    {
-      "name": "ichigo",
-      "course": "shinigami",
-      "grade": 50,
-      "id": 5
-    },
-    {
-      "name": "Jaime",
-      "course": "shinigami",
-      "grade": 100,
-      "id": 6
     }
   ]
 }

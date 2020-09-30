@@ -75,14 +75,12 @@ class App extends React.Component {
     fetch(`/api/grades/${id}`, req)
       .then(res => res.json())
       .then(data => {
-        const newGrades = this.state.grades.slice();
-        for (let i = 0; i < newGrades.length; i++) {
-          if (newGrades[i].id === data.id) {
-            newGrades.splice(i);
+        const newGrades = this.state.grades.slice().filter(grade => {
+          if (grade.id !== id) {
+            return grade;
           }
-        }
-        this.setState({ grades: newGrades });
-        this.getAllGrades();
+        });
+        return this.setState({ grades: newGrades });
       })
       .catch(error => console.error('Post error', error));
   }
